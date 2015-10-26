@@ -1,3 +1,4 @@
 class Ownership < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :owner, class_name: :User
+  belongs_to :game
 end
