@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :ownerships, foreign_key: 'owner_id'
   has_many :games, through: :ownerships
   has_many :reviews, foreign_key: 'reviewer_id'
@@ -13,6 +14,8 @@ class User < ActiveRecord::Base
   end
 end
 
+
+# Lucas' scratch SQL work:
 # User.connection.select_rows(<<-SQL, 1)
 #   SELECT *
 #   FROM users u
