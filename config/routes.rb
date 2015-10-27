@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :friendships, only: [:create, :new]
 
+  resources :ownerships, only: [:create, :new]
+
 
   resources :games, only: [:index, :show]  do
     resources :reviews, only: [:new, :create]
