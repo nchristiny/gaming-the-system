@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-
+  get '/users/:id/friendships' => 'friendships#index', as: 'friendships_pending'
+  put '/users/:id/friendships/:id' => 'friendships#update'
   root 'welcome#index'
 
 end
