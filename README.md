@@ -2,17 +2,17 @@
 
 
 ## Made by Boared Senseless
-## Dev Bootcamp Client Project
-## 2015 Chicago Mud Turtles
+### Dev Bootcamp Client Project
+### 2015 Chicago Mud Turtles
 
 We are:
 
-*Nick Christiny
-*Andy Dierker
-*Linas Mikalcius
+* Nick Christiny
+* Andy Dierker
+* Linas Mikalcius
 
 ### Dependencies:
 
-*Rails
-*Bcrypt
-*Faker
+* Rails
+* Bcrypt
+* Faker
