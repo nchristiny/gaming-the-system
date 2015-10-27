@@ -20,8 +20,8 @@
   <% @game.reviews.each do |review|  %>
     <li><%= review.title %><br>
     Reviewed by: <%= review.reviewer.username %>
-    <% if review.reviewer.ownerships.where(game_id: @game.id).length > 0 %>
-    <img src="/images/gold_star.png"></img>
+    <% if is_owned?(review.game) %>
+      <img src="/images/gold_star.png">
     <% end %><br>
     Score: <%= review.score %><br>
     <%= review.body %><br>
