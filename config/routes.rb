@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :friends, only: [:index]
   end
 
+  # resources :sessions, only: [:new, :create, :destroy]
+
   resources :categories, only: [:index, :show]
 
   resources :games, only: [:index, :show]  do
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   # Linas/Nick: this format works if we need to create a custom route
-  # get '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
