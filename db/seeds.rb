@@ -1,4 +1,4 @@
-50.times do
+200.times do
   user = User.create!(username: Faker::Internet.user_name,
                       password_digest: Faker::Internet.password,
                       created_at: Faker::Time.between(500.days.ago, Time.now, :all))
@@ -15,6 +15,17 @@ category = Category.create!(name: "Simulation Game")
 category = Category.create!(name: "Tile Placement Game")
 category = Category.create!(name: "Auction/Bidding Game")
 category = Category.create!(name: "Roll, Spin, and Move Game")
+
+200.times do
+  game = Category.all.sample.games.create!(name: Faker::App.name,
+                                          image_url: Faker::Avatar.image("180x180"),
+                                          description: Faker::Lorem.sentence,
+                                          min_players: 2,
+                                          max_players: Faker::Number.between(3, 14),
+                                          created_at: Faker::Time.between(500.days.ago, Time.now, :all))
+end
+
+
 
 game = Category.all.sample.games.create!(name: "Checkers",
                     image_url: "http://www.listchallenges.com/f/items/30f2a75f-3b35-4407-953d-1492b582fd2e.jpg",
@@ -222,12 +233,14 @@ game = Category.all.sample.games.create!(name: "Taboo",
 
 
 
-50.times do
+1000.times do
 
   categorization = Category.all.sample.categorizations.create!(game: Game.all.sample)
 
   friendship = User.all.sample.friendships.create!(friend: User.all.sample,
-                                                  created_at: Faker::Time.between(500.days.ago, Time.now, :all))
+                                                  created_at: Faker::Time.between(500.days.ago, Time.now, :all),
+                                                  accepted: [true, false].sample)
+
   ownership = User.all.sample.ownerships.create!(game: Game.all.sample,
                                                 created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
