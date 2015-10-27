@@ -2,10 +2,12 @@
 <ul>
   <% @users.each do |user|  %>
     <li>Username: <%= user.username  %> <%= link_to "Profile", user  %></li>
-    <ul> Games owned by user:
-      <% user.games.each do |game|  %>
-      <li><%= game.name  %> <%= link_to "Show", game  %> </li>
-      <% end %>
-    </ul>
+    <% if is_friend?(user) %>
+      <ul> Games owned by user:
+        <% user.games.each do |game|  %>
+        <li><%= game.name  %> <%= link_to "Show", game  %> </li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </ul>
