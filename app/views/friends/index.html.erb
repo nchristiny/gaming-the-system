@@ -1,0 +1,6 @@
+<h1><%= User.find(params[:user_id]).username %>'s friends</h1>
+<ul>
+  <% @friends.each do |friend| %>
+    <li><%= friend.username  %></li>
+  <% end %>
+</ul>
