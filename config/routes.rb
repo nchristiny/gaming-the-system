@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
+  resources :friendships, only: [:create, :new]
+
+
   resources :games, only: [:index, :show]  do
     resources :reviews, only: [:new, :create]
   end

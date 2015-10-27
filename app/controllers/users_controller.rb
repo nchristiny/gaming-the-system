@@ -11,6 +11,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless is_friend?(@user)
+      redirect_to '/'
+    end
   end
 
   def create
