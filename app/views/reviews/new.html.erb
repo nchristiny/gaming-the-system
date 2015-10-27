@@ -1,0 +1,11 @@
+<h1>Write a review for <%=@game.name%> </h1>
+
+<%= form_for @review, :url => game_reviews_path(@game) do |f| %>
+   <%= f.label :score %>
+   <%= f.number_field :score, min: 0, max: 5 %>
+   <%= f.label :title %>
+   <%= f.text_field :title %>
+   <%= f.label :body %>
+   <%= f.text_area :body %>
+   <%= f.submit "Post Review" %>
+<% end %>
