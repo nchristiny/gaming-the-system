@@ -1,0 +1,9 @@
+<h1><%= @game.name %></h1>
+<br>
+<img src="<%= @game.image_url %> " />
+<br>
+<h2>Description:</h2>
+<p><%= @game.description %> </p>
+<p>Min players: <%= @game.min_players  %> </p>
+<p>Max players: <%= @game.max_players  %> </p>
+<p>Game added: <%= @game.created_at.strftime('%v')  %> </p>

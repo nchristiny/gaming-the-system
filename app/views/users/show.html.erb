@@ -3,7 +3,8 @@
 <p>Owned games:</p>
 <ul>
   <% @user.games.each do |game| %>
-    <li>Title: <%= game.name  %><br>Description: <%= game.description %>  </li>
+    <li>Title: <%= game.name %><%= link_to "Show", game_path  %>
+<br>Description: <%= game.description %> </li>
   <% end %>
 </ul>
 
@@ -20,10 +21,5 @@
       <li><%= friend.username  %></li>
     <% end %>
 </ul>
-
-
-
-<!-- Else if friendship, say "here is your friend's friendlist" or somehting similar -->
-
 
 <% end -%>
