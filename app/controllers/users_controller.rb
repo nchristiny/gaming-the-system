@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-  # copied/pasta from BMock/NChristiny sinatra-to-rails-pick-1-of-3-challenge/hacker-news
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end

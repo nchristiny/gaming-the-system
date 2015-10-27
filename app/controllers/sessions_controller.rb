@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 
-  # copied/pasta from BMock/NChristiny sinatra-to-rails-pick-1-of-3-challenge/hacker-news
   def new
   end
 
