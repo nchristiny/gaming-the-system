@@ -5,6 +5,8 @@
       <% if is_friend?(user) %>
         <%= link_to "Profile", user  %>
       </li>
+    <% elsif logged_in? %>
+      <%= link_to("Add Friend", friendships_path(current_user: current_user.id, friend: user.id), method: :post) %>
     <% end %>
   <% end %>
 </ul>
