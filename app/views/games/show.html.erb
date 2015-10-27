@@ -11,7 +11,9 @@
 <h1>Average Score: <%= @game.average %></h1>
 
 <% if logged_in? %>
-<%= link_to "Write a review", new_game_review_path(params[:id]) %>
+  <%= link_to "Write a review", new_game_review_path(params[:id]) %>
+<% else %>
+  <%= link_to "Sign Up", new_user_path %> or <%= link_to "Log in", login_path %> to write a review
 <% end %>
 
 
