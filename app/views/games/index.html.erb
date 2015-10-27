@@ -1,6 +1,9 @@
 <h1>Games</h1>
 <ul>
   <% @games.each do |game|  %>
-    <li><%= link_to game.name, game_path(game)  %></li>
+    <li><%= link_to game.name, game_path(game)  %>
+    <% if logged_in? %>
+      <%= link_to("Add", ownerships_path(current_user: current_user.id, game: game.id), method: :post) %></li>
     <% end %>
+  <% end %>
 </ul>
