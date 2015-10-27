@@ -14,12 +14,6 @@
     <li>Title: <%= review.title  %><br><%= review.body %>  </li>
   <% end %>
 </ul>
-<% if logged_in? -%> Here are a list of your friends, <%= current_user.username %>
-<p>Friends:</p>
-<ul>
-  <% @user.friends.each do |friend| %>
-      <li><%= friend.username  %></li>
-    <% end %>
-</ul>
+<%= link_to "See all friends", user_friends_path(@user.id) %>
 
 <% end -%>
