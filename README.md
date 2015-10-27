@@ -16,3 +16,4 @@ We are:
 * Rails
 * Bcrypt
 * Faker
+* Will_paginate

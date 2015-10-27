@@ -1,6 +1,21 @@
-
 <h1>Welcome to Gaming the System</h1>
-<h2>Browse games and user lists via the above links!</h2>
-<p>Sign up or log in to rate or review games and find your friends!</p>
+<h2>May the odds be ever in your favor.</h2>
+<h3>Navigate the links above to see games and find friends.</h3>
 
-<p>May the odds be ever in your favor.</p>
+
+<% if !logged_in? %>
+  <p>Log in to see friends' recent games and reviews here!</p>
+<% else %>
+  <h4>Your friends' recently acquired games:</h4>
+  <ul>
+    <% @friends_recent_ownerships.each do |friends_game|  %>
+      <li><%= link_to friends_game.game.name, game_path(friends_game) %></li>
+    <% end %>
+  </ul>
+  <h4>Your friends' recently reviewed games:</h4>
+  <ul>
+    <% @friends_recent_reviews.each do |friends_review|  %>
+      <li><%= link_to friends_review.title, game_path(friends_review)  %></li>
+      <% end %>
+  </ul>
+<% end %>
