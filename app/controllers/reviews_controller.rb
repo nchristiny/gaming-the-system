@@ -7,10 +7,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Game.find(params[:game_id]).reviews.new(review_params)
-    @reviewer = current_user
+    game = Game.find(params[:game_id])
+    @review = game.reviews.new(review_params.merge(reviewer: current_user))
     if @review.save
-      redirect_to game_path(Game.find(params[:game_id]))
+      redirect_to game_path(game)
     else
       render 'new'
     end
