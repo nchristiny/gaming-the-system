@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    unless is_friend?(@user)
+    unless is_friend?(@user) || (current_user == @user)
       redirect_to '/'
     end
   end
