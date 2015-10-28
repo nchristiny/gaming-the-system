@@ -13,6 +13,8 @@ class GamesController < ApplicationController
   end
 
   def highest_rated
+    p Game.first.average
+    @games = Game.all.sort{|a,b| b.average.to_i <=> a.average.to_i}
 
   end
 

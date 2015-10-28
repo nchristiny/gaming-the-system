@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
   def average
     if self.reviews.length > 0
-      self.reviews.map(&:score).reduce(:+)/self.reviews.length
+      return self.reviews.map(&:score).reduce(:+)/self.reviews.length
     else
       return "no reviews yet"
     end
