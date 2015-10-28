@@ -3,7 +3,8 @@ User.delete_all
 200.times do |i|
   user = User.create!(username: "#{Faker::Internet.user_name}#{i}",
                       password_digest: Faker::Internet.password,
-                      created_at: Faker::Time.between(500.days.ago, Time.now, :all))
+                      created_at: Faker::Time.between(500.days.ago, Time.now, :all),
+                      password: "password")
 end
 
 puts "Finish users seed"
@@ -19,15 +20,6 @@ category = Category.create!(name: "Simulation Game")
 category = Category.create!(name: "Tile Placement Game")
 category = Category.create!(name: "Auction/Bidding Game")
 category = Category.create!(name: "Roll, Spin, and Move Game")
-
-200.times do
-  game = Category.all.sample.games.create!(name: Faker::App.name,
-                                          image_url: Faker::Avatar.image("180x180"),
-                                          description: Faker::Lorem.sentence,
-                                          min_players: 2,
-                                          max_players: Faker::Number.between(3, 14),
-                                          created_at: Faker::Time.between(500.days.ago, Time.now, :all))
-end
 
 puts "Finish category seed"
 
@@ -234,7 +226,18 @@ game = Category.all.sample.games.create!(name: "Taboo",
               max_players:  4,
               created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
-puts "Finish game seed"
+
+
+200.times do
+  game = Category.all.sample.games.create!(name: Faker::App.name,
+                                          image_url: Faker::Avatar.image("180x180"),
+                                          description: Faker::Lorem.sentence,
+                                          min_players: 2,
+                                          max_players: Faker::Number.between(3, 14),
+                                          created_at: Faker::Time.between(500.days.ago, Time.now, :all))
+end
+
+puts "Finish games seed"
 
 
 1000.times do
@@ -256,4 +259,4 @@ puts "Finish game seed"
 
 end
 
-puts "Finish review seed"
+puts "Finish categorization, friendship, ownership and review seed"
