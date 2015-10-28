@@ -6,7 +6,7 @@
   <% @games.each do |game|  %>
     <li><%= link_to game.name, game_path(game)  %>
     <% if logged_in? %>
-      <% if is_owned?(game) %>
+      <% unless is_owned?(current_user, game) %>
         <%= link_to("Add", ownerships_path(current_user: current_user.id, game: game.id), method: :post) %></li>
       <% else %>
         remove

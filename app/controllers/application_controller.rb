@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def is_owned?(game)
-    if current_user.games.include?(game)
+  def is_owned?(user, game)
+    if user.games.include?(game)
       return true
     else
       false
