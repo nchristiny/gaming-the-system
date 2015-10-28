@@ -1,17 +1,25 @@
 <h1><%= @user.username %>'s Page</h1>
 
-<p>Owned games:</p>
-<ul>
-  <% @user.games.each do |game| %>
-    <li>Title: <%= game.name %><%= link_to "Show", game_path  %>
-<br>Description: <%= game.description %> </li>
-  <% end %>
-</ul>
+<% if @user.games.count > 0 %>
+  <p>Owned games:</p>
+  <ul>
+    <% @user.games.each do |game| %>
+      <li>Title: <%= game.name %><%= link_to "Show", game_path %>
+  <br>Description: <%= game.description %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You haven't added any games yet! Go ahead and select any games that you own from the <%= link_to "games list", games_path %>!</p>
+<% end %>
 
-<p>Reviews by this user:</p>
-<ul>
-  <% @user.reviews.each do |review| %>
-    <li>Title: <%= review.title  %><br><%= review.body %>  </li>
-  <% end %>
-</ul>
-<%= link_to "See all friends", user_friends_path(@user.id) %>
+<% if @user.reviews.count > 0 %>
+  <p>Reviews by this user:</p>
+  <ul>
+    <% @user.reviews.each do |review| %>
+      <li>Title: <%= review.title  %><br><%= review.body %>  </li>
+    <% end %>
+  </ul>
+  <%= link_to "See all friends", user_friends_path(@user.id) %>
+<% else %>
+  <p>You haven't reviewed any games yet! Check out the <%= link_to "games list", games_path %> to leave a review for any game you may have played.(You get a cool Gold Star if you own the game).</p>
+<% end %>
