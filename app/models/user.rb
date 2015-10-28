@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :reviews, foreign_key: 'reviewer_id'
   has_many :reviewed_games, through: :reviews, source: :game
   has_many :friendships
+  validates :username, presence:true, uniqueness: true
   # has_many :friends, through: :friendships
   def friends
     User.
