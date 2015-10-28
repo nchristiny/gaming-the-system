@@ -1,8 +1,9 @@
 User.delete_all
 
-200.times do |i|
+10.times do |i|
   user = User.create!(username: "#{Faker::Internet.user_name}#{i}",
                       password_digest: Faker::Internet.password,
+
                       created_at: Faker::Time.between(500.days.ago, Time.now, :all),
                       password: "password")
 end
@@ -227,7 +228,7 @@ game = Category.all.sample.games.create!(name: "Taboo",
               created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
 
- 
+
 200.times do
   game = Category.all.sample.games.create!(name: Faker::App.name,
                                           image_url: Faker::Avatar.image("180x180"),
@@ -240,7 +241,7 @@ end
 puts "Finish games seed"
 
 
-1000.times do
+2000.times do
 
   categorization = Category.all.sample.categorizations.create!(game: Game.all.sample)
 
@@ -258,5 +259,4 @@ puts "Finish games seed"
                                           created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
 end
-
 puts "Finish categorization, friendship, ownership and review seed"
