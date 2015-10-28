@@ -1,10 +1,12 @@
 User.delete_all
 
-200.times do
-  user = User.create!(username: Faker::Internet.user_name,
+200.times do |i|
+  user = User.create!(username: "#{Faker::Internet.user_name}#{i}",
                       password_digest: Faker::Internet.password,
                       created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 end
+
+puts "Finish users seed"
 
 category = Category.create!(name: "Acting Game")
 category = Category.create!(name: "Betting/Wagering Game")
@@ -27,7 +29,7 @@ category = Category.create!(name: "Roll, Spin, and Move Game")
                                           created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 end
 
-
+puts "Finish category seed"
 
 game = Category.all.sample.games.create!(name: "Checkers",
                     image_url: "http://www.listchallenges.com/f/items/30f2a75f-3b35-4407-953d-1492b582fd2e.jpg",
@@ -232,7 +234,7 @@ game = Category.all.sample.games.create!(name: "Taboo",
               max_players:  4,
               created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
-
+puts "Finish game seed"
 
 
 1000.times do
@@ -253,3 +255,5 @@ game = Category.all.sample.games.create!(name: "Taboo",
                                           created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
 end
+
+puts "Finish review seed"
