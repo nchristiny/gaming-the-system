@@ -1,8 +1,9 @@
 User.delete_all
 
-200.times do |i|
+10.times do |i|
   user = User.create!(username: "#{Faker::Internet.user_name}#{i}",
                       password_digest: Faker::Internet.password,
+                      password: "password",
                       created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 end
 
@@ -20,7 +21,7 @@ category = Category.create!(name: "Tile Placement Game")
 category = Category.create!(name: "Auction/Bidding Game")
 category = Category.create!(name: "Roll, Spin, and Move Game")
 
-200.times do
+100.times do
   game = Category.all.sample.games.create!(name: Faker::App.name,
                                           image_url: Faker::Avatar.image("180x180"),
                                           description: Faker::Lorem.sentence,
@@ -237,7 +238,7 @@ game = Category.all.sample.games.create!(name: "Taboo",
 puts "Finish game seed"
 
 
-1000.times do
+25.times do
 
   categorization = Category.all.sample.categorizations.create!(game: Game.all.sample)
 
