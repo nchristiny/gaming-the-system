@@ -17,3 +17,7 @@ We are:
 * Bcrypt
 * Faker
 * Will_paginate
+* Pg
+* Rails_12factor
+
+Located online at [heroku](http://gaming-the-system.herokuapp.com)
