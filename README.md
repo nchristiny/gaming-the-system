@@ -19,5 +19,3 @@ We are:
 * Will_paginate
 * Pg
 * Rails_12factor
-
-Located online at [heroku](http://gaming-the-system.herokuapp.com)
