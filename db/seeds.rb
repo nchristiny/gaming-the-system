@@ -1,3 +1,5 @@
+User.delete_all
+
 200.times do
   user = User.create!(username: Faker::Internet.user_name,
                       password_digest: Faker::Internet.password,
