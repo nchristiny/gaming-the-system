@@ -7,7 +7,11 @@
 <p>Min players: <%= @game.min_players  %> </p>
 <p>Max players: <%= @game.max_players  %> </p>
 <p>Game added: <%= @game.created_at.strftime('%v')  %> </p>
-
+<% if logged_in? %>
+  <% unless is_owned?(current_user, @game) %>
+    <p><%= link_to("Add game to your owned list.", ownerships_path(current_user: current_user.id, game: @game.id), method: :post) %></p>
+  <% end %>
+<% end %>
 <h1>Average Score: <%= @game.average %></h1>
 
 <% if logged_in? %>
