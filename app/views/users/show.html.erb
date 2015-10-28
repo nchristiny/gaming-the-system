@@ -4,7 +4,7 @@
   <p>Owned games:</p>
   <ul>
     <% @user.games.each do |game| %>
-      <li>Title: <%= game.name %><%= link_to "Show", game_path %>
+      <li>Title: <%= link_to game.name, game_path(game)  %>
   <br>Description: <%= game.description %> </li>
     <% end %>
   </ul>
@@ -16,7 +16,7 @@
   <p>Reviews by this user:</p>
   <ul>
     <% @user.reviews.each do |review| %>
-      <li>Title: <%= review.title  %><br><%= review.body %>  </li>
+      <li>Game: <%=  Game.find(review.game_id).name %> <br>Review title: <%= review.title  %><br><%= review.body %>  </li>
     <% end %>
   </ul>
   <%= link_to "See all friends", user_friends_path(@user.id) %>

@@ -1,6 +1,11 @@
 <h1><%= User.find(params[:user_id]).username %>'s friends</h1>
-<ul>
-  <% @friends.each do |friend| %>
-    <li><%= friend.username  %></li>
-  <% end %>
-</ul>
+<% if  User.find(params[:user_id]).friends.empty? %>
+  <h2>Hey, you haven't got any friends yet! </h2>
+  <p>Go ahead and find some from the <%= link_to "user list page", users_path %> and make some friends, loser.</p>
+<% else %>
+  <ul>
+    <% @friends.each do |friend| %>
+      <li><%= friend.username  %></li>
+    <% end %>
+  </ul>
+<% end %>
