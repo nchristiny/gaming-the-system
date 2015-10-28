@@ -1,11 +1,11 @@
-<h1>Games</h1>
+<h1>Newest Games</h1>
   <% unless logged_in? %>
     <%= link_to "Sign Up", new_user_path %> or <%= link_to "Log in", login_path %> to add games
   <% end %>
 
 <!--   Sort by: Newest, Most Owned, Highest Rated
  -->
-    <h2>Sort By: <%= link_to("Newest", games_newest_path) %>, <%= link_to("Most Owned", games_most_owned_path) %></h2>
+    <h2>Sort By: <%= link_to("Most Owned", games_most_owned_path) %></h2>
 <ul>
   <% @games.each do |game|  %>
     <li><%= link_to game.name, game_path(game)  %>
