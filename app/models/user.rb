@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   def friends
     User.
       joins('INNER JOIN friendships ON friendships.user_id = users.id OR friendships.friend_id = users.id').
-      where('(friendships.user_id = :user_id OR friendships.friend_id = :user_id) AND users.id != :user_id', user_id: self.id)
+      where('(friendships.user_id = :user_id OR friendships.friend_id = :user_id) AND (users.id != :user_id)', user_id: self.id)
     # User.joins(:friendships).where('friendships.user_id = ? OR friendships.friend_id = ?', self.id, self.id)
   end
 end

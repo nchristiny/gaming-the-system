@@ -10,12 +10,13 @@
   <%= link_to "Home", welcome_index_path  %>
   <% if session[:user_id] %>
     <%= link_to "Log out", { controller: :sessions, action: :destroy, id: session[:user_id] }, method: :delete %>
+    <%= link_to "Users", users_path  %>
     <%= link_to "Profile", user_path(session[:user_id]) %>
+    <%= link_to("Pending Friend Requests", friendships_pending_path(session[:user_id])) %>
   <% else %>
     <%= link_to "Sign Up", new_user_path %>
     <%= link_to "Log in", login_path %>
   <% end %>
-  <%= link_to "Users", users_path  %>
   <%= link_to "Games", games_path  %>
   <hr>
   <%= yield %>

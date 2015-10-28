@@ -1,0 +1,11 @@
+<h1>Pending Friendships</h1>
+<ul>
+  <% @pending_friendships.each do |friendship| %>
+    <li><%= friendship.user.username  %>
+      <%= form_for friendship, url: "/users/#{@user.id}/friendships/#{friendship.id}", method: :put do |f| %>
+      <%= hidden_field_tag 'accepted', true  %>
+      <%= f.submit %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

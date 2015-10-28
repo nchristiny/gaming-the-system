@@ -12,11 +12,20 @@ class FriendshipsController < ApplicationController
       redirect_to users_path
     else
       redirect_to '/'
+    p "******55555****************************"
+    p @user.id
+    p "**********************************55555"
     end
   end
 
+  def update
+    Friendship.find(params[:friendship_id]).update_attribute(:accepted, true)
+    redirect_to "/users/#{params[:user_id]}/friendships"
+  end
+
   def index
-    @pending_friendships = current_user.friendships.reject(&:accepted).map(&:friend) #DISPLAY ALL PENDING FRIENDSHIPS WHICH ARE NOT ACCEPTED
+    @user = current_user
+    @pending_friendships = Friendship.all.where(friend_id: current_user.id).reject(&:accepted)
   end
 
 end
