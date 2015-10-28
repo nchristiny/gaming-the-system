@@ -13,4 +13,10 @@ class OwnershipsController < ApplicationController
       redirect_to games_path
     end
   end
+
+  def destroy
+    ownership = Ownership.find(params[:id])
+    ownership.destroy
+    redirect_to games_path
+  end
 end
