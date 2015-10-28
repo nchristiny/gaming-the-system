@@ -227,7 +227,7 @@ game = Category.all.sample.games.create!(name: "Taboo",
               created_at: Faker::Time.between(500.days.ago, Time.now, :all))
 
 
-
+ 
 200.times do
   game = Category.all.sample.games.create!(name: Faker::App.name,
                                           image_url: Faker::Avatar.image("180x180"),
